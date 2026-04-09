@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionaryX AI - Disease & Emergency Analysis Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🧠 VisionaryX AI</h1>
+                <p class="tagline">Intelligent Disease & Emergency Analysis Agent</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="card input-card">
+                <h2>Patient Symptom Analysis</h2>
+                <p class="description">Enter your symptoms separated by commas to get an AI-powered health analysis.</p>
+                
+                <form id="symptomForm" class="form">
+                    <div class="form-group">
+                        <label for="symptoms">Symptoms</label>
+                        <textarea 
+                            id="symptoms" 
+                            name="symptoms" 
+                            placeholder="Example: fever, headache, vomiting"
+                            rows="4"
+                            required
+                        ></textarea>
+                        <small>Separate multiple symptoms with commas</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Analyze Patient</span>
+                        <span class="loading hidden">Analyzing...</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsContainer" class="results-container hidden">
+                <div class="card results-card">
+                    <h2>Analysis Results</h2>
+                    
+                    <div class="results-grid">
+                        <!-- Disease Prediction -->
+                        <div class="result-item">
+                            <div class="result-header">
+                                <span class="result-icon">🦠</span>
+                                <h3>Predicted Disease</h3>
+                            </div>
+                            <p id="resultDisease" class="result-value">-</p>
+                        </div>
+
+                        <!-- Severity Level -->
+                        <div class="result-item">
+                            <div class="result-header">
+                                <span class="result-icon">⚠️</span>
+                                <h3>Severity Level</h3>
+                            </div>
+                            <p id="resultSeverity" class="result-value severity-badge">-</p>
+                        </div>
+
+                        <!-- Emergency Status -->
+                        <div class="result-item">
+                            <div class="result-header">
+                                <span class="result-icon">🚨</span>
+                                <h3>Emergency Status</h3>
+                            </div>
+                            <p id="resultEmergency" class="result-value">-</p>
+                        </div>
+
+                        <!-- Treatment Type -->
+                        <div class="result-item">
+                            <div class="result-header">
+                                <span class="result-icon">💊</span>
+                                <h3>Treatment Type</h3>
+                            </div>
+                            <p id="resultTreatment" class="result-value">-</p>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="result-item full-width">
+                            <div class="result-header">
+                                <span class="result-icon">📝</span>
+                                <h3>Description</h3>
+                            </div>
+                            <p id="resultDescription" class="result-value">-</p>
+                        </div>
+
+                        <!-- Causes -->
+                        <div class="result-item full-width">
+                            <div class="result-header">
+                                <span class="result-icon">🔍</span>
+                                <h3>Possible Causes</h3>
+                            </div>
+                            <p id="resultCause" class="result-value">-</p>
+                        </div>
+                    </div>
+
+                    <div class="disclaimer">
+                        <strong>⚠️ Disclaimer:</strong> This AI analysis is for informational purposes only and should not replace professional medical advice. Always consult with a healthcare professional for accurate diagnosis and treatment.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorContainer" class="error-container hidden">
+                <div class="card error-card">
+                    <h3 id="errorMessage">Error occurred</h3>
+                    <button type="button" class="btn btn-secondary" onclick="clearError()">Dismiss</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 VisionaryX AI. Powered by Advanced Machine Learning | <a href="https://github.com/230220131041-Poorv/VisionaryX-AI" target="_blank">GitHub Repository</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
